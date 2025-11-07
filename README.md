@@ -34,7 +34,7 @@ Core layers:
 ### ⚙️ Setup
 
 ```bash
-git clone https://github.com/<your-org>/SEFCNet.git
+[git clone https://github.com/<your-org>/SEFCNet.git](https://github.com/ernestonkunzimana/SEFC-Net-Self-Evolving-Federated-Cognitive-Network/tree/main)
 cd SEFCNet
 python3 -m venv venv && source venv/bin/activate
 pip install -r SEFCNet/requirements.txt
