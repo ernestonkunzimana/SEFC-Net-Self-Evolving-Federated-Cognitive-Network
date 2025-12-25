@@ -3,9 +3,15 @@ Test script for edge resilience capabilities
 Validates offline training, connectivity detection, and batch synchronization
 """
 
+import sys
+import os
+from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import asyncio
 import logging
-from pathlib import Path
 
 # Configure logging
 logging.basicConfig(

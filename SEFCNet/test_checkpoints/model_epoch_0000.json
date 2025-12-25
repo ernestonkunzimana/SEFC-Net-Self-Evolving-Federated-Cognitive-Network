@@ -1,0 +1,14 @@
+{
+  "epoch": 0,
+  "node_id": "test_node_001",
+  "timestamp": 1766678026.1936655,
+  "model_weights": null,
+  "training_log": [
+    {
+      "epoch": 0,
+      "loss": 0.9954394683018668,
+      "timestamp": 1766678026.1795535,
+      "samples_trained": 3200
+    }
+  ]
+}

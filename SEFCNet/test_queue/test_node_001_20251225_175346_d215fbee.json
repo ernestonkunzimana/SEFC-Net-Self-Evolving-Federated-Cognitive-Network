@@ -1,0 +1,11 @@
+{
+  "update_id": "test_node_001_20251225_175346_d215fbee",
+  "node_id": "test_node_001",
+  "timestamp": 1766678026.3586962,
+  "metadata": {
+    "epoch": 1,
+    "loss": 0.4
+  },
+  "size_bytes": 44,
+  "compressed": true
+}
