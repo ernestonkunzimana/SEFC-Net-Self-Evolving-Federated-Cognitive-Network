@@ -47,6 +47,10 @@ env/
 htmlcov/
 .tox/
 .nox/
+test_checkpoints/
+test_queue/
+**/test_checkpoints/
+**/test_queue/
 
 # Data and Logs
 logs/
