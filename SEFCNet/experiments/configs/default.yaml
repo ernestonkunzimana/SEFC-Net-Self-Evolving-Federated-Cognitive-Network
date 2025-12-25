@@ -1,0 +1,22 @@
+# Default federated learning configuration
+federated:
+  num_rounds: 10
+  num_clients: 5
+  min_fit_clients: 3
+  min_evaluate_clients: 3
+  
+model:
+  input_dim: 4
+  hidden_dim: 64
+  output_dim: 3
+  learning_rate: 0.01
+  
+training:
+  batch_size: 32
+  epochs_per_round: 1
+  max_iter: 200
+  
+data:
+  test_size: 0.2
+  partition_strategy: "iid"
+  random_state: 42

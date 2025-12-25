@@ -1,0 +1,22 @@
+# Federated meta-learning configuration
+federated:
+  num_rounds: 20
+  num_clients: 5
+  min_fit_clients: 3
+  min_evaluate_clients: 3
+  
+meta_learning:
+  enabled: true
+  inner_lr: 0.01
+  outer_lr: 0.001
+  inner_steps: 5
+  adaptation_lr: 0.01
+  
+model:
+  input_dim: 4
+  hidden_dim: 64
+  output_dim: 3
+  
+training:
+  batch_size: 32
+  epochs_per_round: 1

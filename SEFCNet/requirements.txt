@@ -1,0 +1,64 @@
+# Core ML/FL dependencies
+tensorflow==2.12.0
+flwr==1.6.0
+protobuf>=3.20.3,<5.0.0dev
+streamlit>=1.22.0
+fastapi>=0.95.0
+uvicorn[standard]>=0.21.0
+httpx>=0.24.0
+PyJWT>=2.0.0
+optuna>=3.0.0
+kubernetes>=25.3.0
+prometheus_client>=0.16.0
+pyyaml>=6.0.0
+python-dotenv>=1.0.0
+
+# Database
+aiosqlite>=0.19.0
+
+# Security & Authentication
+passlib[bcrypt]>=1.7.4
+cryptography>=41.0.0
+email-validator>=2.0.0
+
+# Monitoring & Analytics
+plotly>=5.17.0
+pandas==2.0.3
+numpy==1.23.5
+dash>=2.14.0
+dash-bootstrap-components>=1.5.0
+
+# Optional but recommended
+psutil>=5.9.0
+tenacity>=8.2.0
+aiohttp>=3.8.0
+
+# MANDATORY: Quantum-RIS Integration
+qiskit>=0.45.0
+cirq>=1.3.0
+
+# MANDATORY: Cognitive Network
+networkx>=3.2.0
+
+# MANDATORY: Biological Evolution
+deap>=1.4.0
+scikit-learn==1.3.2
+
+# MANDATORY: Privacy Layer
+tenseal>=0.3.0
+# crypten>=0.4.0  # OPTIONAL: Advanced MPC (deprecated sklearn dependency)
+
+# MANDATORY: Cross-Modal Learning
+torch>=2.0.0
+transformers>=4.30.0
+
+# MANDATORY: Explainable FL
+shap>=0.42.0
+lime>=0.2.0
+
+# MANDATORY: Sustainable FL
+codecarbon>=2.3.0
+
+# Testing
+pytest>=7.3.0
+pytest-asyncio>=0.21.0

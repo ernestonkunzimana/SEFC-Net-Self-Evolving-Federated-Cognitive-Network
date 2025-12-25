@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sefcnet-ingress
+  namespace: sefcnet
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+  - host: sefcnet.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sefcnet-server
+            port:
+              name: http
+      - path: /dashboard
+        pathType: Prefix
+        backend:
+          service:
+            name: sefcnet-server
+            port:
+              name: dashboard
+      - path: /metrics
+        pathType: Prefix
+        backend:
+          service:
+            name: sefcnet-server
+            port:
+              name: metrics

@@ -1,0 +1,65 @@
+# Default OpenFL configuration
+federated:
+  framework: openfl
+  workspace_dir: "./workspace/openfl"
+  federation_name: "sefcnet_federation"
+  secure_aggregation: true
+  secure_threshold: 3
+  prime_bits: 256
+  
+  # Client configuration
+  client_config:
+    batch_size: 32
+    local_epochs: 5
+    optimizer:
+      name: "adam"
+      learning_rate: 0.001
+    
+  # Server configuration
+  server_config:
+    rounds: 100
+    min_clients: 3
+    aggregation_algorithm: "fedavg"
+    compression_algorithm: "none"
+    
+  # Security settings
+  security:
+    encryption_enabled: true
+    certificate_folder: "./certs"
+    tls_enabled: true
+    
+  # Monitoring
+  monitoring:
+    enabled: true
+    metrics_interval: 10
+    prometheus_port: 8081
+    
+meta_learning:
+  algorithm: "maml"
+  meta_lr: 0.01
+  adaptation_steps: 5
+  adaptation_lr: 0.1
+  num_episodes: 1000
+  task_batch_size: 5
+  
+reinforcement_learning:
+  algorithm: "ppo"
+  total_timesteps: 1000000
+  eval_freq: 10000
+  hyperparameters:
+    learning_rate: 0.0003
+    batch_size: 64
+    n_steps: 2048
+    
+evolution:
+  num_generations: 100
+  meta_threshold: 0.1
+  rl_threshold: 0.1
+  adaptation_rate: 0.05
+  mutation_rate: 0.01
+  
+environment:
+  state_dim: 64
+  action_dim: 10
+  reward_scale: 1.0
+  episode_length: 1000

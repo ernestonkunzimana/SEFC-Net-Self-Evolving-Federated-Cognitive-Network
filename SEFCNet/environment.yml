@@ -1,0 +1,20 @@
+name: sefcnet
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - tensorflow=2.12
+  - numpy
+  - pandas
+  - scikit-learn
+  - pip:
+    - flwr==1.6.0
+    - streamlit
+    - plotly
+    - prometheus-client
+    - pyjwt
+    - optuna
+    - torch
+    - torchvision

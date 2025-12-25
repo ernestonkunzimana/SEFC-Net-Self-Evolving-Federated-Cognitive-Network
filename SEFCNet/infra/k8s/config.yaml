@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sefcnet-config
+  namespace: sefcnet
+data:
+  config.yaml: |
+    server:
+      host: 0.0.0.0
+      port: 5000
+      dashboard_port: 8501
+      metrics_port: 8080
+      
+    logging:
+      level: INFO
+      file: /app/logs/sefcnet.log
+      
+    monitoring:
+      prometheus:
+        enabled: true
+        port: 8080
+      mlflow:
+        tracking_uri: http://mlflow:5000
+        
+    storage:
+      artifacts_dir: /app/artifacts
+      
+    federation:
+      min_clients: 2
+      max_clients: 10
+      rounds: 100
+      local_epochs: 5
+      batch_size: 32

@@ -1,0 +1,26 @@
+system:
+  name: "SEFCNet"
+  version: "1.0.0"
+  environment: "development"
+
+federation:
+  num_rounds: 10
+  min_clients: 5
+  selection_strategy: "performance_based"
+  aggregation_method: "weighted_average"
+
+evolution:
+  enable: true
+  strategy: "adaptive"
+  mutation_rate: 0.1
+  population_size: 20
+  fitness_metric: "weighted_performance"
+
+monitoring:
+  metrics_interval: 5
+  enable_prometheus: true
+  dashboard_port: 8501
+  alert_thresholds:
+    accuracy_min: 0.75
+    memory_max: 85.0
+    cpu_max: 90.0

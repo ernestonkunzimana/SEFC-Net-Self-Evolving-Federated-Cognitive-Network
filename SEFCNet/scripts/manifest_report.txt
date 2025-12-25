@@ -1,0 +1,95 @@
+Repository File Manifest Report
+Generated: 2025-11-07 10:15:47
+Total files: 64
+
+
+CONFIGURATION (8 files)
+----------------------------
+  .vscode\settings.json
+  SEFCNet\artifacts\federated_history.json
+  SEFCNet\experiments\configs\default.yaml
+  SEFCNet\experiments\configs\fedmeta.yaml
+  SEFCNet\infra\k8s\deployment.yaml
+  SEFCNet\infra\k8s\service.yaml
+  SEFCNet\requirements.txt
+  requirements.txt
+
+DOCUMENTATION (4 files)
+----------------------------
+  README.md
+  SEFC-Net.docx
+  SEFC-Net.pdf
+  SEFCNet.docx
+
+DOTFILES (1 files)
+-----------------------
+  .gitignore
+
+INFRASTRUCTURE (3 files)
+-----------------------------
+  Dockerfile
+  SEFCNet\infra\docker\Dockerfile.client
+  SEFCNet\infra\docker\Dockerfile.server
+
+OTHER (3 files)
+--------------------
+  SEFCNet.code-workspace
+  SEFCNet\data\sensor.csv
+  SEFCNet\logs\monitor.log
+
+PYTHON (34 files)
+---------------------
+  SEFCNet\__init__.py
+  SEFCNet\central_controller\__init__.py
+  SEFCNet\central_controller\aggregator.py
+  SEFCNet\central_controller\registry.py
+  SEFCNet\central_controller\server.py
+  SEFCNet\dashboard\__init__.py
+  SEFCNet\dashboard\monitor.py
+  SEFCNet\experiments\__init__.py
+  SEFCNet\experiments\run_federated.py
+  SEFCNet\main.py
+  SEFCNet\models\__init__.py
+  SEFCNet\models\base_model.py
+  SEFCNet\models\hybrid_model.py
+  SEFCNet\models\meta_learner.py
+  SEFCNet\models\rl_agent.py
+  SEFCNet\nodes\__init__.py
+  SEFCNet\nodes\client1.py
+  SEFCNet\nodes\client2.py
+  SEFCNet\nodes\client3.py
+  SEFCNet\nodes\clientN.py
+  SEFCNet\nodes\client_evolving.py
+  SEFCNet\nodes\client_template.py
+  SEFCNet\rl\__init__.py
+  SEFCNet\rl\replay_buffer.py
+  SEFCNet\rl\self_evolving_agent.py
+  SEFCNet\sefcn_core\__init__.py
+  SEFCNet\sefcn_core\meta_optimizer.py
+  SEFCNet\utils\__init__.py
+  SEFCNet\utils\config_loader.py
+  SEFCNet\utils\logger.py
+  SEFCNet\utils\metrics.py
+  SEFCNet\utils\network_utils.py
+  scripts\compare_with_pdf.py
+  scripts\track_files.py
+
+SCRIPTS (1 files)
+----------------------
+  scripts\setup_venv.ps1
+
+TESTS (4 files)
+--------------------
+  SEFCNet\tests\__init__.py
+  SEFCNet\tests\test_end_to_end.py
+  SEFCNet\tests\test_server.py
+  SEFCNet\tests\test_trainer.py
+
+TEXT (6 files)
+-------------------
+  scripts\compare_report.txt
+  scripts\current_manifest.txt
+  scripts\expected_manifest.txt
+  scripts\extra.txt
+  scripts\missing.txt
+  scripts\pdf_text.txt

@@ -1,0 +1,104 @@
+version: "3.8"
+services:
+  sefcnet-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sefcnet-api
+    ports:
+      - "8000:8000"  # FastAPI
+      - "8501:8501"  # Streamlit Dashboard
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./artifacts:/app/artifacts
+    environment:
+      - PYTHONPATH=/app
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - CORS_ORIGINS=http://localhost:3000,http://localhost:8501
+    env_file:
+      - .env
+    networks:
+      - sefcnet
+    depends_on:
+      - prometheus
+      - grafana
+      - mlflow
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./infra/prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    networks:
+      - sefcnet
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./infra/grafana:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    networks:
+      - sefcnet
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./artifacts/mlflow:/mlflow
+    environment:
+      - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
+      - AWS_ACCESS_KEY_ID=minioadmin
+      - AWS_SECRET_ACCESS_KEY=minioadmin
+    command: mlflow server --host 0.0.0.0
+    networks:
+      - sefcnet
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    command: server /data --console-address ":9001"
+    networks:
+      - sefcnet
+
+
+volumes:
+  prometheus_data:
+  grafana_data:
+  minio_data:
+
+networks:
+  sefcnet:
+    driver: bridge

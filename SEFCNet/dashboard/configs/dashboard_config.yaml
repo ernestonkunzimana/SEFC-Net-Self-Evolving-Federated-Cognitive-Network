@@ -1,0 +1,141 @@
+name: "Advanced SEFCNet Dashboard"
+version: 2.0.0
+description: "Next-generation dashboard configuration for SEFCNet monitoring and analytics"
+
+# Basic Display Settings
+display:
+  theme: "light"
+  accent_color: "#1f77b4"
+  font_family: "Inter"
+  
+# Layout Configuration  
+layout:
+  title: "SEFCNet Analytics Dashboard"
+  sidebar:
+    width: 300
+    position: "left"
+    collapsible: true
+    
+  main:
+    padding: 20
+    max_width: 1200
+    
+  tabs:
+    - name: "Overview"
+      icon: "📊"
+      default: true
+    - name: "Training Metrics" 
+      icon: "📈"
+    - name: "Network Analysis"
+      icon: "🌐"
+    - name: "Model Explainability"
+      icon: "🔍"
+
+# Component Settings
+components:
+  metrics_viewer:
+    charts:
+      height: 400
+      interactive: true
+      show_toolbar: true
+      
+  model_explainer: 
+    max_features: 10
+    plot_height: 500
+    methods:
+      - "shap"
+      - "lime"
+      - "permutation"
+      
+  network_graph:
+    layout: "circular"
+    node_size: 
+      server: 30
+      client: 20
+    animation:
+      enabled: true
+      duration: 500
+      
+  real_time_monitor:
+    update_interval: 5
+    history_window: 3600
+    metrics:
+      - name: "accuracy"
+        color: "#2ca02c"
+      - name: "loss" 
+        color: "#d62728"
+      - name: "clients"
+        color: "#1f77b4"
+
+# Visualization Settings        
+visualizations:
+  colors:
+    primary: "#1f77b4"
+    secondary: "#ff7f0e" 
+    success: "#2ca02c"
+    warning: "#d62728"
+    info: "#17becf"
+    
+  charts:
+    line:
+      width: 2
+      marker_size: 6
+    scatter:
+      size: 8  
+      opacity: 0.7
+    bar:
+      opacity: 0.8
+      
+  animations:
+    enabled: true
+    duration: 500
+    easing: "cubic-bezier(0.4, 0, 0.2, 1)"
+
+# Monitoring Configuration
+monitoring:
+  metrics:
+    - accuracy
+    - loss
+    - client_count
+    - network_latency
+    
+  alerts:
+    enabled: true
+    levels:
+      - name: "critical"
+        color: "#d62728"
+      - name: "warning" 
+        color: "#ff7f0e"
+      - name: "info"
+        color: "#17becf"
+        
+    thresholds:
+      accuracy:
+        min: 0.7
+        warning: 0.8
+      loss:
+        max: 1.0
+        warning: 0.5
+      latency:
+        max: 1000
+        warning: 500
+
+# Performance Settings        
+performance:
+  caching:
+    enabled: true
+    ttl: 300
+    
+  optimization:
+    batch_size: 1000
+    max_points: 10000
+    
+  throttling:
+    enabled: true
+    rate: 5
+    
+# Development Settings
+development:
+  debug: false
+  log_level: "info"
+  profiling: false
